@@ -1,10 +1,16 @@
+// Java project (for build)
 apply plugin: 'java'
+
+// For Eclipse editor
 apply plugin: 'eclipse'
+
+// For Intelij editor
 apply plugin: 'idea'
-apply plugin: 'pmd'
-apply plugin: 'findbugs'
+
 apply plugin: 'checkstyle'
-apply plugin: "jacoco"
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
+apply plugin: 'jacoco'
 apply plugin: 'jdepend'
 
 repositories{
@@ -22,9 +28,7 @@ dependencies{
 def gradleExtra="${project.rootDir}/gradle/script"
 def reportDir="${project.buildDir}/reports"
 
-task myJavadocs(type: Javadoc) {
-  source = sourceSets.main.allJava
-}
+check.dependsOn 'cpd'
 
 pmd {
     pmdTest.enabled = false
@@ -55,7 +59,14 @@ checkstyle {
 
 jacoco {
     toolVersion = "0.8.1"
-    reportsDir = file("$buildDir/reports/jacoco")
+    reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+    }
 }
 
 jdepend{
@@ -67,6 +78,22 @@ tasks.withType(Pmd) {
     reports {
         xml.enabled true
         html.enabled true
+    }
+}
+
+
+task cpd {
+    doLast {
+        def cpdOutputDir = new File("${reportDir}/cpd")
+        cpdOutputDir.mkdirs()
+
+        ant.taskdef(name: 'cpd', classname: 'net.sourceforge.pmd.cpd.CPDTask', classpath: configurations.pmd.asPath)
+
+        ant.cpd(minimumTokenCount: '5', format: 'xml', outputFile: new File(cpdOutputDir, 'cpd.xml')) {
+            fileset(dir: 'src') {
+                include(name: '**/*.java')
+            }
+        }
     }
 }
 
