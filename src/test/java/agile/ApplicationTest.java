@@ -13,7 +13,7 @@ public class ApplicationTest {
 	public void testAdd() {
 		int i = 2;
 		int j = 3;
-		int k = Application.add(i, j);
+		int k = Application.addFunctionCalculator(i, j);
 
 		Assert.assertEquals("Add not good", k, 5);
 	}
