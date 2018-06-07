@@ -24,8 +24,8 @@ public class Application{
 	 * @param j int
 	 * @return int
 	 */
-	public static int addFunctionCalculator(final int i, final int j) {
-		return i + j;
+	public static int addFunctionCalculator(final int entierUn, final int entierDeux) {
+		return entierUn + entierDeux;
 	}
 
 }

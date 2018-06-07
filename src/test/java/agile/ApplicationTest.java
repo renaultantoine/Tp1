@@ -11,11 +11,11 @@ public class ApplicationTest {
 
 	@Test
 	public void testAdd() {
-		int i = 2;
-		int j = 3;
-		int k = Application.addFunctionCalculator(i, j);
+		int entierUn = 2;
+		int entierDeux = 3;
+		int entierResult = Application.addFunctionCalculator(entierUn, entierDeux);
 
-		Assert.assertEquals("Add not good", k, 5);
+		Assert.assertEquals("Add not good", entierResult, 5);
 	}
 }
  
