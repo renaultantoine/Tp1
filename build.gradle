@@ -39,3 +39,7 @@ pmd{
         }
     }
 }
+
+test{
+    ignoreFailure = true
+}
