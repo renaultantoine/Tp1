@@ -31,6 +31,7 @@ pmd{
     'java-strings',
     'java-unusedcode']
     toolVersion = '5.8.1'
+    ignoreFailure = true
     
     tasks.withType(Pmd){
     reports{
