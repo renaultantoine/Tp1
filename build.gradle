@@ -22,6 +22,11 @@ dependencies{
 def gradleExtra="${project.rootDir}/gradle/script"
 def reportDir="${project.buildDir}/reports"
 
+javadoc {
+    source = sourceSets.main.allJava
+    classpath = configurations.compile
+}
+
 pmd {
     pmdTest.enabled = false
     ruleSets = ["java-basic",
