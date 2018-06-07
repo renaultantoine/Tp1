@@ -22,9 +22,8 @@ dependencies{
 def gradleExtra="${project.rootDir}/gradle/script"
 def reportDir="${project.buildDir}/reports"
 
-javadoc {
-    source = sourceSets.main.allJava
-    classpath = configurations.compile
+task myJavadocs(type: Javadoc) {
+  source = sourceSets.main.allJava
 }
 
 pmd {
