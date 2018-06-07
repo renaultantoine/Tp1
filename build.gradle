@@ -2,6 +2,8 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'pmd'
+apply plugin: 'findbugs'
+apply plugin: 'checkstyle'
 
 repositories{
 	mavenCentral();
@@ -11,6 +13,8 @@ repositories{
 dependencies{
 	compile 'joda-time:joda-time:2.10'
 	testCompile('junit:junit:4.12')
+	
+
 }
 
 def gradleExtra="${project.rootDir}/gradle/script"
@@ -36,6 +40,10 @@ pmd {
 //    toolVersion = '5.8.1'
 //    ruleSetFiles = files("${gradleExtra}/pmd_rules_lvl1.xml")
     ignoreFailures = true
+}
+
+checkstyle {
+    toolVersion = "6.0"
 }
 
 tasks.withType(Pmd) {
