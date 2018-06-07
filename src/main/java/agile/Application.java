@@ -6,10 +6,14 @@ import org.joda.time.DateTime;
 /**Entry point of application.**/
 public class Application{
 
-	public static void main(String[] args)
+	/**
+	 * Methode main 
+	 * @param args tab of args
+	 */
+	public static void main(final String[] args)
 	{
 		System.out.println("Hello world !!!");
-		DateTime date = DateTime.now();
+		final DateTime date = DateTime.now();
 		System.out.println(date);
 		
 	}
@@ -20,7 +24,7 @@ public class Application{
 	 * @param j int
 	 * @return int
 	 */
-	public static int add(int i, int j) {
+	public static int addFunctionCalculator(final int i, final int j) {
 		return i + j;
 	}
 
