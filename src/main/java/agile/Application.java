@@ -4,7 +4,7 @@ package agile;
 import org.joda.time.DateTime;
 
 /** Entry point of application. **/
-public class Application {
+public final class Application {
 
 	/**
 	 * Private Application main
@@ -27,13 +27,10 @@ public class Application {
 	}
 
 	/**
-	 * Add methode with 2 parameter.
-	 * 
-	 * @param i
-	 *            int
-	 * @param j
-	 *            int
-	 * @return int
+	 * Methode ajouter calculatrice
+	 * @param entierUn premier paramètre
+	 * @param entierDeux second parametre
+	 * @return le resultat
 	 */
 	public static int addFunctionCalculator(final int entierUn, final int entierDeux) {
 		return entierUn + entierDeux;
