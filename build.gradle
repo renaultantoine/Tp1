@@ -14,33 +14,29 @@ dependencies{
 }
 
 pmd{
-    pmdTest.enabled = false
-    ruleSets = [
-    'java-basic',
-    'java-braces',
-    'java-clone',
-    'java-codesize',
-    'java-comments',
-    'java-controversial',
-    'java-design',
-    'java-empty',
-    'java-finalizer',
-    'java-imports',
-    'java-naming',
-    'java-optimization',
-    'java-strings',
-    'java-unusedcode']
-    toolVersion = '5.8.1'
-    ignoreFailure = true
-    
-    tasks.withType(Pmd){
-    reports{
-            xml.enabled true
-            html.enabled true
+        pmdTest.enabled = false
+    ruleSets = ["java-basic",
+      "java-braces",
+      "java-clone",
+      "java-codesize",
+      "java-comments",
+      "java-controversial",
+      "java-coupling",
+      "java-design",
+      "java-empty",
+      "java-finalizers",
+      "java-imports",
+      "java-naming",
+      "java-optimizations",
+      "java-strings",
+      "java-unusedcode"]
+//    toolVersion = '5.8.1'
+//    ruleSetFiles = files("${gradleExtra}/pmd_rules_lvl1.xml")
+    ignoreFailures = true
         }
     }
 }
 
 test{
-    ignoreFailure = true
+    ignoreFailures = true
 }
