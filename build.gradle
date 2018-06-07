@@ -4,6 +4,8 @@ apply plugin: 'idea'
 apply plugin: 'pmd'
 apply plugin: 'findbugs'
 apply plugin: 'checkstyle'
+apply plugin: "jacoco"
+apply plugin: 'jdepend'
 
 repositories{
 	mavenCentral();
@@ -44,6 +46,26 @@ pmd {
 
 checkstyle {
     toolVersion = "7.8.1"
+    ignoreFailures = true
+}
+
+jacoco {
+    toolVersion = "0.8.1"
+    reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination file("${buildDir}/jacocoHtml")
+    }
+}
+
+jdepend{
+    ignoreFailures = true
+    reportsDir = file("$buildDir/customJdependReportDir")
+    toolVersion = "1.9.11"
 }
 
 tasks.withType(Pmd) {
