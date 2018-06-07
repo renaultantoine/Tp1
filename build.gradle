@@ -43,7 +43,7 @@ pmd {
 }
 
 checkstyle {
-    toolVersion = "6.0"
+    toolVersion = "7.8.1"
 }
 
 tasks.withType(Pmd) {
